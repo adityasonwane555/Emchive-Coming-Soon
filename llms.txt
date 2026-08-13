@@ -1,0 +1,20 @@
+# Emchive
+
+> Your internet is worth remembering.
+
+Emchive is a personal digital archive designed for saving, curating, and retrieving the things you discover online, save, and want to find again. It turns scattered internet bookmarks, articles, notes, and research fragments into a personal archive you can return to.
+
+## Project Overview
+- **Name**: Emchive (also associated with MindVault)
+- **Domain**: https://emchive.com
+- **Tagline**: Your internet is worth remembering.
+- **Status**: Launching 2026 (Coming Soon)
+- **Core Concept**: A personal archive for web discoveries, articles, design inspiration, research notes, and internet fragments.
+
+## Key Brand Messages
+- "Save less. Remember more."
+- "A personal archive for the things you discover, save, and want to find again."
+- "Emchive turns the scattered things you find online into a personal archive you can actually return to."
+
+## Main Links
+- [Emchive Official Site](https://emchive.com/)

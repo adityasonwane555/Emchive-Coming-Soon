@@ -5,24 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emchive — Your Internet Is Worth Remembering</title>
   
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://emchive.com/" />
+  
   <!-- SEO & Meta Description -->
-  <meta name="description" content="Emchive is a personal archive for the things you discover, save, and want to find again. Coming soon." />
-  <meta name="keywords" content="Emchive, MindVault, digital archive, bookmarking, personal knowledge, internet memory" />
+  <meta name="description" content="Emchive is a personal digital archive for the things you discover, save, and want to find again." />
+  <meta name="keywords" content="Emchive, MindVault, personal archive, digital archive, bookmarking, personal knowledge management, internet memory" />
   <meta name="author" content="Emchive" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#F4EDDF" />
+
+  <!-- AI & LLM Discovery Meta Tags -->
+  <meta name="ai-summary" content="Emchive is a personal digital archive for saving, curating, and retrieving internet discoveries, research notes, and web fragments." />
+  <link rel="help" type="text/plain" href="llms.txt" title="LLM Information" />
   
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://emchive.com/" />
+  <meta property="og:site_name" content="Emchive" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Emchive — Your Internet Is Worth Remembering" />
   <meta property="og:description" content="A personal archive for the things you discover, save, and want to find again." />
-  <meta property="og:image" content="https://emchive.com/favicon.svg" />
+  <meta property="og:image" content="https://emchive.com/elements/Logo.png" />
+  <meta property="og:image:alt" content="Emchive Logo" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://emchive.com/" />
   <meta name="twitter:title" content="Emchive — Your Internet Is Worth Remembering" />
   <meta name="twitter:description" content="A personal archive for the things you discover, save, and want to find again." />
+  <meta name="twitter:image" content="https://emchive.com/elements/Logo.png" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="elements/Logo.png" />
@@ -36,18 +48,42 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- JSON-LD Structured Data for Search Engines -->
+  <!-- JSON-LD Structured Data for Search Engines & AI Assistants -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Emchive",
-    "url": "https://emchive.com",
-    "description": "A personal archive for the things you discover, save, and want to find again.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Emchive"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://emchive.com/#website",
+        "url": "https://emchive.com/",
+        "name": "Emchive",
+        "description": "A personal archive for the things you discover, save, and want to find again.",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://emchive.com/#organization",
+        "name": "Emchive",
+        "url": "https://emchive.com/",
+        "logo": "https://emchive.com/elements/Logo.png",
+        "sameAs": []
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://emchive.com/#software",
+        "name": "Emchive",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        },
+        "description": "Emchive turns the scattered things you find online into a personal archive you can actually return to."
+      }
+    ]
   }
   </script>
 </head>
