@@ -746,11 +746,14 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE & SMARTPHONE OPTIMIZATIONS
    ========================================================================== */
+
+/* Tablet & Smaller Screens */
 @media (max-width: 992px) {
   .memory-cards-grid {
     grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
   }
 
   .memory-card {
@@ -760,7 +763,7 @@ body {
 
   .collage-wrapper {
     min-height: auto;
-    padding: 2rem 1.5rem;
+    padding: 2.25rem 1.5rem;
   }
 
   .bg-arch-shape, .bg-circle-shape {
@@ -768,34 +771,204 @@ body {
   }
 }
 
+/* Smartphone Screens (< 640px) */
 @media (max-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
   .site-header {
-    padding: 1.5rem 0 1rem 0;
+    padding: 1.25rem 0 1rem 0;
   }
 
   .header-nav {
-    padding-bottom: 1rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .brand-text {
+    font-size: 1.25rem;
+  }
+
+  .brand-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .status-pill {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.675rem;
   }
 
   .hero-section {
-    padding: 2.5rem 0 2rem 0;
+    padding: 2rem 0 1.75rem 0;
+  }
+
+  .hero-content {
+    gap: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.15rem, 9.5vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .archive-visual-container {
+    padding: 1.5rem 0 3rem 0;
+  }
+
+  .collage-wrapper {
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .collage-meta-bar {
+    padding-bottom: 1rem;
+    gap: 0.5rem;
+  }
+
+  .archive-label-tag {
+    font-size: 0.725rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .archive-stamp {
+    font-size: 0.675rem;
+  }
+
+  .memory-card {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 2px 2px 0px var(--border-dark);
+  }
+
+  .memory-card:active {
+    transform: scale(0.98) !important;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+  }
+
+  .card-snippet {
+    font-size: 0.825rem;
+  }
+
+  .starburst-deco {
+    width: 36px;
+    height: 36px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .essence-box {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .essence-text {
+    font-size: 1.15rem;
+  }
+
+  .essence-quote-mark {
+    font-size: 2.25rem;
+    top: 0.5rem;
+    left: 0.85rem;
+  }
+
+  .launch-status-section {
+    padding: 3rem 0 4rem 0;
+  }
+
+  .launch-card {
+    padding: 2.25rem 1.25rem;
+    border-radius: var(--radius-md);
+    gap: 1.35rem;
+    box-shadow: 3.5px 3.5px 0px var(--mustard);
+  }
+
+  .launch-title {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
+  }
+
+  .launch-subtitle {
+    font-size: 0.95rem;
   }
 
   .notify-input-group {
     flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .notify-input {
+    font-size: 16px; /* Prevents automatic iOS zoom on focus */
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    text-align: center;
   }
 
   .btn-primary {
     width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .launch-card {
-    padding: 2.5rem 1.5rem;
+  .btn-secondary {
+    min-height: 44px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .feedback-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.25rem;
+    text-align: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .site-footer {
+    padding: 2rem 0 2.5rem 0;
   }
 
   .footer-content {
     flex-direction: column;
     text-align: center;
-    justify-content: center;
+    gap: 0.65rem;
+    font-size: 0.825rem;
   }
 }
+
+/* Extra Small Smartphones (< 380px e.g. iPhone SE) */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  .brand-text {
+    font-size: 1.1rem;
+  }
+
+  .status-pill {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .memory-card {
+    padding: 1rem 0.85rem;
+  }
+}
+
