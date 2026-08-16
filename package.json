@@ -1,0 +1,12 @@
+{
+  "name": "emchive-coming-soon",
+  "version": "1.0.0",
+  "description": "Emchive — Coming Soon Landing Page",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000",
+    "start": "npx -y serve . -l 3000"
+  },
+  "keywords": ["emchive", "landing-page"],
+  "author": "Emchive",
+  "license": "ISC"
+}

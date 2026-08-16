@@ -629,19 +629,25 @@ body {
   font-size: 0.95rem;
   cursor: pointer;
   white-space: nowrap;
-  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
   box-shadow: 2px 2px 0px var(--bg-main);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background: #f0d568;
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0px var(--bg-main);
 }
 
-.btn-primary:active {
+.btn-primary:active:not(:disabled) {
   transform: translate(0px, 0px);
   box-shadow: 1px 1px 0px var(--bg-main);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* Copy Link Secondary Action */

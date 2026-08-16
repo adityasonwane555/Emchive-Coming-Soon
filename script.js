@@ -9,24 +9,85 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
 });
 
+/* ==========================================================================
+   SUPABASE CONFIGURATION
+   Replace these placeholders with your Supabase Project URL and Anon Public Key
+   ========================================================================== */
+const SUPABASE_CONFIG = {
+  url: 'https://vufysejldaaagwwkpzym.supabase.co',
+  anonKey: 'sb_publishable_oqLYFAXPrKFbHEqRbG3Lpw_LFwOiScq'
+};
+
 /**
  * Handle Launch Notification Interest Form
  */
 function initFormHandler() {
   const form = document.getElementById('notify-form');
   const input = document.getElementById('notify-email');
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
   if (!form || !input) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = input.value.trim();
 
-    if (email && validateEmail(email)) {
-      showToast(`✨ You're on the list! We'll notify ${email} at launch.`);
-      input.value = '';
-    } else {
+    if (!email || !validateEmail(email)) {
       showToast('⚠️ Please enter a valid email address.');
+      input.focus();
+      return;
+    }
+
+    // Check if configuration has been supplied
+    if (!SUPABASE_CONFIG.url || SUPABASE_CONFIG.url.includes('YOUR_SUPABASE_PROJECT_URL')) {
+      showToast('⚙️ Supabase credentials pending setup. Check script.js');
+      return;
+    }
+
+    // Set UI loading state
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Notify Me';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving...';
+    }
+
+    try {
+      const endpoint = `${SUPABASE_CONFIG.url.replace(/\/$/, '')}/rest/v1/waitlist`;
+      
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_CONFIG.anonKey,
+          'Authorization': `Bearer ${SUPABASE_CONFIG.anonKey}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email: email.toLowerCase() })
+      });
+
+      if (response.status === 201 || response.ok) {
+        showToast(`✨ You're on the list! We'll notify ${email} at launch.`);
+        input.value = '';
+      } else {
+        const errorData = await response.json().catch(() => null);
+        
+        // Supabase error code 23505 is unique violation (already registered)
+        if (errorData && (errorData.code === '23505' || (errorData.message && errorData.message.includes('duplicate')))) {
+          showToast(`✨ You're already on the waitlist with ${email}!`);
+          input.value = '';
+        } else {
+          console.error('Supabase error:', errorData);
+          showToast('⚠️ Could not save email. Please try again in a moment.');
+        }
+      }
+    } catch (err) {
+      console.error('Network submission error:', err);
+      showToast('⚠️ Network connection error. Please check your internet.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
     }
   });
 }
