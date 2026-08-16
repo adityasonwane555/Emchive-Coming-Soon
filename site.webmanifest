@@ -1,0 +1,19 @@
+{
+  "name": "Emchive",
+  "short_name": "Emchive",
+  "icons": [
+    {
+      "src": "elements/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "elements/Logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#F4EDDF",
+  "background_color": "#F4EDDF",
+  "display": "standalone"
+}
